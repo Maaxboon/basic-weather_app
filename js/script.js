@@ -1,21 +1,27 @@
-function getWeather() {
-    const city = document.getElementById("cityInput").value;
-    const apiKey = "MY_API_KEY";
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+const apiKey = '62ca33fbf36e0cbcf1ef51a1e098b5a3';
+const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+
+const locationInput = document.getElementById('locationInput');
+const searchButton = document.getElementById('searchButton');
+const locationElement = document.getElementById('locationElement');
+const temperatureElement = document.getElementById('temperatureElement');
+const descriptionElement = document.getElementById('descriptionElement');
+
+searchButton.addEventListener('click', () => {
+    const location = locationInput.value;
+    if (location) {
+        fetchWeather(location);
+    }
+});
+
+function fetchWeather(location) {
+    const url = `${apiUrl}?q=${location}&appid=${apiKey}&units=metric`;
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const weatherInfo = document.getElementById("weatherInfo");
-            weatherInfo.innerHTML = `
-            <h2>${data.name}</h2>
-            <p>${data.weather[0].description}</p>
-            <p>Temperature: ${data.main.temp}&deg;C</p>
-            <p>Humidity: ${data.main.humidity}%</p>`;
-        })
-        .catch(error => {
-            console.error("Error fetching weather data:", error);
-            const weatherInfo = document.getElementById("weatherInfo");
-            weatherInfo.innerHTML = "<p>Failed to fetch weather data. Please try again later.</p>";
+            locationElement.textContent = data.name;
+            temperatureElement.textContent = `${Math.round(data.main.temp)}°C`;
+            descriptionElement.textContent = data.weather[0].description;
         });
 }
