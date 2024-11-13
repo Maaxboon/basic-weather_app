@@ -20,7 +20,7 @@ A simple weather application that allows users to check the current weather cond
 
 To run this application, you will need:
 
-- A web browser (Google Chrome, Mozilla Firefox, etc.)
+- A web browser (Google Chrome, Mozilla Firefox, Microsoft Edge, Brave Browser, Opera Browser, Safari etc.)
 - An API key from [OpenWeatherMap](https://openweathermap.org/api) or any other weather API provider.
 
 ## Installation
