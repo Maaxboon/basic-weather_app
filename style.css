@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   background: #8c52ff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -6,17 +7,20 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #weather-container {
   background: rgba(255, 255, 255, 0.3);
-  max-width: 400px;
+  max-width: 90%; /* Set to a percentage so it's responsive */
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
+  width: 400px;
 }
 
 h2,
@@ -26,13 +30,18 @@ p {
   margin: 8px 0;
 }
 
-input {
-  width: calc(100% - 16px);
-  padding: 8px;
+input,
+button {
+  width: 100%;
+  padding: 10px;
   box-sizing: border-box;
   border-radius: 10px;
   border: 1px solid white;
   margin-top: 20px;
+}
+
+input {
+  width: calc(100% - 16px);
 }
 
 button {
@@ -43,7 +52,6 @@ button {
   border-radius: 10px;
   cursor: pointer;
   margin-top: 20px;
-  width: 100px;
   font-size: 15px;
 }
 
@@ -175,4 +183,56 @@ input:checked + .slider {
   color: #fff;
   font-size: 18px;
   margin-top: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  #weather-container {
+    width: 90%; /* Allow the container to take up more space on smaller screens */
+    padding: 15px;
+  }
+
+  #temp-div p {
+    font-size: 50px; /* Smaller font size on mobile devices */
+  }
+
+  #weather-icon {
+    width: 150px;
+    height: 150px;
+  }
+
+  #hourly-forecast {
+    flex-direction: column;
+    overflow-y: auto; /* Stack hourly items vertically */
+  }
+
+  .hourly-item {
+    width: 70px; /* Adjust hourly item width */
+    margin-bottom: 10px; /* Space out hourly items */
+  }
+}
+
+@media (max-width: 480px) {
+  #weather-container {
+    width: 95%; /* Further reduce width on very small screens */
+  }
+
+  #temp-div p {
+    font-size: 40px; /* Even smaller font size */
+  }
+
+  #weather-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  #hourly-forecast {
+    flex-direction: column;
+    overflow-y: auto;
+    align-items: center; /* Center the hourly items */
+  }
+
+  .hourly-item {
+    width: 60px; /* Adjust hourly item width */
+  }
 }
