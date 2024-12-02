@@ -1,5 +1,7 @@
 # Weather App 🌦️
 
+![Weather App Screenshot](/weather-shot.png)
+
 A sleek weather app that allows users to check the current weather and hourly forecast for any city around the world. Users can toggle between Celsius and Fahrenheit for temperature display.
 
 ---
@@ -64,12 +66,6 @@ A sleek weather app that allows users to check the current weather and hourly fo
 2. **CSS** for styling.
 3. **JavaScript** for interactivity and API calls.
 4. **OpenWeather API** for weather data.
-
----
-
-## Screenshots
-
-![Weather App Screenshot](/weather-shot.png)
 
 ---
 
